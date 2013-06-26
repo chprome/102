@@ -1,0 +1,65 @@
+<!--#?photographer-->
+<div class="photograph-wrapper">
+  <div class="data">
+    <div class="text">
+      <div class="photographer">
+        <div class="name"><span class="rank">{{rank}}.</span> {{name}}</div>
+        <div class="info">
+          <span class="country">{{country}}</span>
+          <span class="dates">({{birth}} - {{death}})</span>
+        </div>
+        <div class="bio">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris convallis rhoncus lectus, tempus condimentum ligula aliquam vel. In leo sem, gravida ut rutrum vel, iaculis id massa. Morbi ultricies lectus tortor, non tincidunt lectus tristique tincidunt. Curabitur et eros semper, lacinia lectus sed, gravida metus.
+        </div>
+      </div>
+    </div>
+    <div class="media">
+      <div class="photo">
+        <a href="{{gallery}}" target="_blank">
+          <img width="300" src="{{picture}}"/>
+        </a>
+      </div>
+    </div>
+    <div class="text">
+      <div class="technique">
+        <strong>Genre : </strong>
+        {{#each category}}
+          {{this}}&nbsp;
+        {{/each}}
+        <br/>
+        <strong>Démarche : </strong>
+        {{#each style}}
+          {{this}}&nbsp;
+        {{/each}}
+        <br>
+        <strong>Couleur : </strong> {{color}}
+      </div>
+      <div class="technique">
+        {{#if gallery}}
+        <a href="{{gallery}}" class="media-link" target="_blank">
+          <img src="img/gallerie.gif"/>
+        </a>
+        {{/if}}
+        {{#if video}}
+          <a href="{{video}}" class="media-link" target="_blank">
+            <img src="img/video.gif"/>
+          </a>
+        {{/if}}
+      </div>
+     <div class="technique">
+        {{#if amazon}}
+          <strong>DVD : </strong>{{amazon}}
+        {{/if}}
+      </div>
+    </div>
+  </div>
+</div>
+<hr>
+<!--#?end-->
+<!--#?filterselect-->
+<select multiple="multiple" filter-attr="{{name}}" i18n="{{i18n}}" class="filter {{name}} multiselect">
+    {{#each val}}
+      <option value="{{this}}">{{this}}</option>
+    {{/each}}
+</select>
+<!--#?end-->

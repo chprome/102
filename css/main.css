@@ -1,0 +1,83 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+.wrapper {
+  background: white;
+  width: 910px;
+  margin: auto;
+  padding: 10px;
+}
+
+hr {
+  clear: both;
+}
+
+.filters {
+  display: table;
+  margin: 10px auto 10px auto;
+}
+
+.photograph-wrapper {
+  clear: both;
+}
+
+.photographer {
+  margin-bottom: 20px;
+}
+
+.photographer .info span {
+  padding-right: 20px;
+  font-weight: 200;
+}
+
+div.name {
+  font-size: 1.5em;
+}
+
+.bio {
+  padding: 20px 10px 0 0;
+}
+
+.rank {
+  font-weight: 200;
+}
+
+.media {
+  float: left;
+  width: 300px;
+  padding-right: 30px;
+}
+
+.media div {
+  margin-bottom: 10px;
+}
+
+.text {
+  float: left;
+  width: 250px;
+}
+
+.technique {
+  padding-bottom: 30px;
+}
+
+.media-link {
+  padding-right: 10px;
+}
+
+.sort {
+  padding: 0px 10px;
+}
+
+.sortup, .sortdown{
+  cursor: pointer;
+}
+
+.multiselect-all label {
+  font-weight: bold;
+}
