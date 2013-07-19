@@ -1,23 +1,25 @@
-uniqueArray = function(array) {
-  var arr = [];
-  array.forEach(function(item, index) {
-    if(arr.indexOf(array[index]) === -1) {
-      arr.push(array[index]);
-    }
-  });
-  return arr; 
+var _102 = {};
+
+_102.uniqueArray = function(array) {
+    var arr = [];
+    array.forEach(function(item, index) {
+      if(arr.indexOf(array[index]) === -1) {
+        arr.push(array[index]);
+      }
+    });
+    return arr; 
 };
 
-refreshList = function() {
-  $(".wrapper").empty();
-  filteredphotographers.forEach(function(photographer) {
-    var $html = $.handlebarTemplates.partials.photographer(photographer);
-    $(".wrapper").append($html);
+_102.refreshList = function() {
+  jQuery(".wrapper").empty();
+  _102.filteredphotographers.forEach(function(photographer) {
+    var jQueryhtml = jQuery.handlebarTemplates.partials.photographer(photographer);
+    jQuery(".wrapper").append(jQueryhtml);
   });
 };
 
-initMultiselect = function() {
-  $('.multiselect').multiselect({
+_102.initMultiselect = function() {
+  jQuery('.multiselect').multiselect({
     buttonClass: 'btn',
     buttonContainer: '<div class="btn-group" />',
     buttonWidth: 'auto',
@@ -25,63 +27,56 @@ initMultiselect = function() {
     selectAllText: " Tous",
     includeSelectAllOption: true,
     onChange: function(element, checked) {
-      applyFilter();
+      _102.applyFilter();
     },
     buttonText: function(options, select) {
       var name = select.attr("i18n");
-      if (options.length == 0) {
+      if (options.length === 0) {
         return name+' <b class="caret"></b>';
       }
-      else if (options.length > 3) {
-        return name + ": "+options.length + ' sélectionnés <b class="caret"></b>';
-      }
-      else {
-        var selected = name + ": ";
-        options.each(function() {
-          selected += $(this).text() + ', ';
-        });
-        return selected.substr(0, selected.length -2) + ' <b class="caret"></b>';
+      else  {
+        return name + " ("+options.length + ")";
       }
     }
   });
 };
 
-sortup = function(name) {
-  photographers.sort(function(a,b) {
+_102.sortup = function(name) {
+  _102.photographers.sort(function(a,b) {
     return a[name] - b[name];
   });
-  applyFilter();
+  _102.applyFilter();
 };
 
-sortdown = function(name) {
-  photographers.sort(function(a,b) {
+_102.sortdown = function(name) {
+  _102.photographers.sort(function(a,b) {
     return b[name] - a[name];
   });
-  applyFilter();
+  _102.applyFilter();
 };
 
-initSort = function() {
-  $(".sortup").each(function(index, item) {
-    var sort = $(item);
+_102.initSort = function() {
+  jQuery(".sortup").each(function(index, item) {
+    var sort = jQuery(item);
     sort.click(function() {
-      sortup(sort.attr('sorted-attr'));
+      _102.sortup(sort.attr('sorted-attr'));
     });
   });
-  $(".sortdown").each(function(index, item) {
-    var sort = $(item);
+  jQuery(".sortdown").each(function(index, item) {
+    var sort = jQuery(item);
     sort.click(function() {
-      sortdown(sort.attr('sorted-attr'));
+      _102.sortdown(sort.attr('sorted-attr'));
     });
   });
 };
 
-$(document).ready(function() {
-  $(document).autoBars(function() {
-    initFilters();
-    refreshList();
-    initMultiselect();
-    initSort();
+jQuery(document).ready(function() {
+  jQuery(document).autoBars(function() {
+    _102.initFilters();
+    _102.refreshList();
+    _102.initMultiselect();
+    _102.initSort();
   });
 
-  $('#resetfilter').click(function(){resetFilter()});
+  jQuery('#resetfilter').click(function(){_102.resetFilter();});
 });
